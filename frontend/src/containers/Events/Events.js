@@ -3,8 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
 import { Container, Box , Grid, Card , CardContent , CardMedia , Typography } from "@mui/material";
 import { fetchProducts } from "../../store/actions/productsActions";
-import ProductItem from "../../components/ProductItem/ProductItem";
-import ProductsLayout from "../../components/UI/Layout/ProductsLayout";
 
 const Events = ({ mathch, history }) => {
     const dispatch = useDispatch();
@@ -21,17 +19,17 @@ const Events = ({ mathch, history }) => {
         });
     };
 
-    useEffect(() => {
-        dispatch(fetchProducts(search));
-    }, [dispatch, search]);
+    // useEffect(() => {
+    //     dispatch(fetchEvents(search));
+    // }, [dispatch, search]);
 
-    const delContact = async (id) => {
-        try {
-            await dispatch(deleteContacts(id));
-        } finally {
-            handleClose();
-        }
-    };
+    // const delContact = async (id) => {
+    //     try {
+    //         await dispatch(deleteEvent(id));
+    //     } finally {
+    //         handleClose();
+    //     }
+    // };
 
     return (
         <Container maxWidth="lg">

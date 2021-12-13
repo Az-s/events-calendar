@@ -12,7 +12,7 @@ import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useDispatch, useSelector } from "react-redux";
 import { SignInUser } from '../../store/actions/usersActions';
-import FacebookLogin from '../../components/UI/FacebookLogin/FacebookLogin';
+import GoogleLogin from "../../components/UI/GoogleLogin/GoogleLogin";
 
 function Copyright(props) {
     return (
@@ -116,7 +116,7 @@ const SignIn = () => {
                                 Sign In
                             </Button>
                             <Grid item xs={12}>
-                                <FacebookLogin />
+                                <GoogleLogin />
                             </Grid>
                             <Grid container>
                                 <Grid item>
