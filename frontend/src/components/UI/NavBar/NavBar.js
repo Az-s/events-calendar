@@ -13,7 +13,7 @@ const NavBar = () => {
             <AppBar position="static">
                 <Toolbar variant="dense" sx={{justifyContent: 'center'}}>
                     <Typography variant="h6" component={Link} to="/" sx={{color: 'white' , textDecoration: 'none' , flexGrow: 1}}>
-                        Music App
+                        Event app
                     </Typography>
                     <Grid item>
                         {user ? (

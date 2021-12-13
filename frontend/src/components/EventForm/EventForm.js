@@ -1,28 +1,40 @@
 import React, { useState } from 'react';
 import { Grid, Button, TextField } from '@mui/material';
 
-const TrackForm = ({ onSubmit }) => {
-    const [track, setTrack] = useState({
+const EventForm = ({ onSubmit }) => {
+    const [event, setEvent] = useState({
         title: "",
-        duration: "",
-        number: "",
-        youtube: ''
+        description: "",
     });
 
     const submitFormHandler = e => {
         e.preventDefault();
-        onSubmit();
+
+        const formData = new FormData();
+        Object.keys(album).forEach(key => {
+            formData.append(key, album[key]);
+        });
+
+        onSubmit(formData);
     };
 
     const inputChangeHandler = e => {
         const name = e.target.name;
         const value = e.target.value;
-        setTrack(prevState => {
-            return { ...prevState, [name]: value };
+        setEvent(prev => {
+            return { ...prev, [name]: value };
         });
     };
 
-    return track && (
+    // const fileChangeHandler = e => {
+    //     const name = e.target.name;
+    //     const file = e.target.files[0];
+    //     setEvent(prev => {
+    //         return { ...prev, [name]: file };
+    //     });
+    // };
+
+    return (
         <Grid
             container
             direction="column"
@@ -40,33 +52,7 @@ const TrackForm = ({ onSubmit }) => {
                     variant="outlined"
                     label="Title"
                     name="title"
-                    value={track.title}
-                    onChange={inputChangeHandler}
-                />
-            </Grid>
-
-            <Grid item xs>
-                <TextField
-                    required
-                    fullWidth
-                    variant="outlined"
-                    type="number"
-                    label="Number"
-                    name="number"
-                    value={track.number}
-                    onChange={inputChangeHandler}
-                />
-            </Grid>
-
-            <Grid item xs>
-                <TextField
-                    required
-                    fullWidth
-                    variant="outlined"
-                    type="text"
-                    label="Duration"
-                    name="duration"
-                    value={track.duration}
+                    value={event.title}
                     onChange={inputChangeHandler}
                 />
             </Grid>
@@ -78,9 +64,9 @@ const TrackForm = ({ onSubmit }) => {
                     multiline
                     rows={3}
                     variant="outlined"
-                    label="Youtube"
-                    name="youtube"
-                    value={track.youtube}
+                    label="Description"
+                    name="description"
+                    value={event.description}
                     onChange={inputChangeHandler}
                 />
             </Grid>
@@ -92,4 +78,4 @@ const TrackForm = ({ onSubmit }) => {
     )
 }
 
-export default TrackForm;
+export default EventForm;

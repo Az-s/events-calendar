@@ -2,9 +2,9 @@ import React from 'react';
 import { Typography } from '@mui/material';
 import { useDispatch } from "react-redux";
 import { createAlbum } from "../../store/actions/albumActions";
-import AlbumForm from '../../components/AlbumForm/AlbumForm';
+import EventForm from '../../components/EventForm/EventForm';
 
-const NewAlbum = ({history}) => {
+const NewEvent = ({history}) => {
     const dispatch = useDispatch();
 
     const onSubmit = async albumData => {
@@ -14,12 +14,12 @@ const NewAlbum = ({history}) => {
 
     return (
         <>
-            <Typography variant="h4">New Album</Typography>
-            <AlbumForm
+            <Typography variant="h4">New Event</Typography>
+            <EventForm
                 onSubmit={onSubmit}
             />
         </>
     )
 }
 
-export default NewAlbum;
+export default NewEvent;
